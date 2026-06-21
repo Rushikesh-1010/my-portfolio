@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base-900 text-ink-1 font-body antialiased;
+  font-feature-settings: 'ss01' on, 'ss02' on;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.25);
+  color: #f1f5f9;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2a45;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3a5c;
+}
+
+/* Reusable layer */
+@layer components {
+  .glass-card {
+    @apply bg-base-800/60 backdrop-blur-xl border border-line rounded-2xl;
+  }
+
+  .section-pad {
+    @apply px-6 sm:px-10 lg:px-24 py-24 md:py-32;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.25em] uppercase text-accent-sky;
+  }
+
+  .heading-xl {
+    @apply font-display font-semibold text-4xl sm:text-5xl lg:text-6xl text-ink-0 tracking-tight;
+  }
+
+  .heading-lg {
+    @apply font-display font-semibold text-3xl sm:text-4xl text-ink-0 tracking-tight;
+  }
+
+  .body-lead {
+    @apply text-ink-2 text-base sm:text-lg leading-relaxed;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-sky text-base-950 font-semibold text-sm
+      hover:bg-accent-skydim transition-all duration-300 shadow-glow hover:shadow-[0_0_0_1px_rgba(56,189,248,0.3),0_0_32px_rgba(56,189,248,0.25)];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-line text-ink-1 font-semibold text-sm
+      hover:border-accent-sky/50 hover:text-ink-0 hover:bg-base-800/50 transition-all duration-300;
+  }
+
+  .tag-chip {
+    @apply font-mono text-[11px] tracking-wide px-2.5 py-1 rounded-md bg-base-700/60 border border-line text-ink-2;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium text-ink-2 hover:text-ink-0 transition-colors duration-200;
+  }
+
+  .nav-link.active {
+    @apply text-accent-sky;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
